@@ -1,0 +1,11 @@
+<a href="#">Link to the outer space</a>
+<div class="tags">
+    
+    <div class="tags__tag" *ngFor="let tag of tags; let index = index">
+        <span class="tags__text">{{tag}}</span>
+        <span class="tags__close" (click)="delete(index)">X</span>
+    </div>
+    
+    <input type="text" class="tags__input" [maxLength]="max" (keyup.enter)="add($event)" placeholder="Ajouter un tag">
+
+</div>
