@@ -8,6 +8,8 @@ import { AwBlogArticleModel } from '../models/aw-blog-article.model';
 })
 export class AwBlogComponent implements OnInit {
 
+  articles: AwBlogArticleModel[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -15,7 +17,11 @@ export class AwBlogComponent implements OnInit {
 
   add(article: AwBlogArticleModel): void {
     console.log(article);
-    
+    //important cloner pour éviter de copier une référence
+    const cloneArticle = JSON.parse(JSON.stringify(article));
+    this.articles.push(cloneArticle);
+    article.title = "";
+    article.text = "";
   }
 
 }
