@@ -1,5 +1,12 @@
 <h2>Blog</h2>
 <aw-blog-form [max]="100" (addEmitter)="add($event)"></aw-blog-form>
 
+<ng-container *ngIf="articles.length===0">
+    <h2>Il n'y a aucun article à lire pour l'instant.</h2>
+</ng-container>
+<ng-container>
+    <button class="btn btn__primary" (click)="expandAll()">Tout montrer</button>
+    <button class="btn btn__primary" (click)="collapseAll()" >Tout cacher</button>
+</ng-container>
 <aw-blog-article *ngFor="let article of articles" [article]="article"></aw-blog-article>
 <br>

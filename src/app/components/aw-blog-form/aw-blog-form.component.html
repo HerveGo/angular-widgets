@@ -1,13 +1,20 @@
 <div class="blog-form">
     <label for="title">Titre</label>
-    <input id="title" type="text" class="blog-form__title" [(ngModel)]="article.title" placeholder="Entrez votre titre">
+    <input id="title" #title
+        (keyup.enter)="textArea.focus()"
+        type="text"
+        class="blog-form__title"
+        [(ngModel)]="article.title"
+        placeholder="Entrez votre titre">
     
-    <textarea [maxLength]="max"
+    <textarea #textArea
+        [maxLength]="max"
         class="blog-form__title"
         [ngClass]="{'blog-form__error': article.text.length == max}"
         cols="30" rows="10"
         [(ngModel)]="article.text"
-        placeholder="Entrez votre texte ici.">
+        placeholder="Entrez votre texte ici."
+        (keyup.enter)="post()">
     </textarea>
     
     <div class="blog-form__counter">{{ article.text.length  }}/{{ max }}</div>

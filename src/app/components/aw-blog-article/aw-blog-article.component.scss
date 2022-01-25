@@ -4,15 +4,17 @@
     border-radius: 4px;
 
     &__header{
-        text-align: center;
+        background-color: var(--clr-primary);
+        color:white;
+        cursor: pointer;
     }
 
     &__title{
-
+        text-align: center;
     }
 
     &__text{
-
+        background-color: #ddd;
     }
 
 }

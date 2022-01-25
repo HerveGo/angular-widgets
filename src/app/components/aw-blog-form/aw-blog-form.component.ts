@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AwBlogArticleComponent } from '../aw-blog-article/aw-blog-article.component';
 import { AwBlogArticleModel } from '../models/aw-blog-article.model';
 
 @Component({
@@ -16,6 +17,9 @@ export class AwBlogFormComponent implements OnInit {
     title: "",
     text:""
   }
+  
+  @ViewChild("title")
+  titleRef!: ElementRef;
 
   constructor() { }
 
@@ -24,5 +28,7 @@ export class AwBlogFormComponent implements OnInit {
 
   post(): void {
     this.addEmitter.emit(this.article);
+    this.titleRef.nativeElement.focus();
   }
+
 }

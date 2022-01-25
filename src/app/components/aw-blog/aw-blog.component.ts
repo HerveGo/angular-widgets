@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AwBlogArticleComponent } from '../aw-blog-article/aw-blog-article.component';
 import { AwBlogArticleModel } from '../models/aw-blog-article.model';
 
 @Component({
@@ -9,6 +10,9 @@ import { AwBlogArticleModel } from '../models/aw-blog-article.model';
 export class AwBlogComponent implements OnInit {
 
   articles: AwBlogArticleModel[] = [];
+
+  @ViewChildren(AwBlogArticleComponent)
+  articlesList!: QueryList<AwBlogArticleComponent>;
 
   constructor() { }
 
@@ -22,6 +26,14 @@ export class AwBlogComponent implements OnInit {
     this.articles.push(cloneArticle);
     article.title = "";
     article.text = "";
+  }
+
+  expandAll() {
+    this.articlesList.forEach( article => article.expand() );
+  }
+
+  collapseAll() {
+    this.articlesList.forEach( article => article.collapse() );
   }
 
 }
