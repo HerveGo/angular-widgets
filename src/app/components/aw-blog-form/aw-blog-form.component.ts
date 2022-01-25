@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AwBlogArticleModel } from '../models/aw-blog-article.model';
 
 @Component({
   selector: 'aw-blog-form',
@@ -9,14 +10,19 @@ export class AwBlogFormComponent implements OnInit {
 
   @Input() max: number = 0;
 
-  article: {title: string, text: string} = {
+  @Output() addEmitter: EventEmitter<AwBlogArticleModel> = new EventEmitter<AwBlogArticleModel>();
+
+  article: AwBlogArticleModel = {
     title: "",
-    text: ""
-  };
+    text:""
+  }
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  post(): void {
+    this.addEmitter.emit(this.article);
+  }
 }

@@ -7,8 +7,9 @@
         border-style: solid;
         border-width: 1px;
         border-radius: 4px;
-        font-family: inherit;
+        font: inherit;
         outline: none;
+        margin-top: 4px;
     }
 
     &__counter{
