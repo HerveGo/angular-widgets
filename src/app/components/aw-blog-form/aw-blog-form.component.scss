@@ -1,0 +1,21 @@
+.blog-form {
+    display: flex;
+    flex-direction: column;
+
+    &__title, &__text{
+        border-color: #888;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 4px;
+        font-family: inherit;
+        outline: none;
+    }
+
+    &__counter{
+        color: #777;
+    }
+
+    &__error {
+        border-color: red;
+    }
+}
