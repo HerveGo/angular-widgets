@@ -15,11 +15,29 @@
         background-color: var(--clr-primary);
 
         &:hover {
-            background-color: var(--clr-secondary);
+            background-color: var(--clr-primary-light);
         }
         &:disabled {
             background-color: #999;
             cursor:default;
         }
+    }
+
+    &__secondary {
+        background-color: var(--clr-secondary);
+        &:hover {
+            background-color: var(--clr-secondary-light);
+        }
+        &:disabled {
+            background-color: #999;
+            cursor:default;
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 }
