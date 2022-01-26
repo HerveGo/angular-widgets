@@ -1,4 +1,4 @@
-<div>
+<div style="height: 100vh;">
     <div class="carousel" *ngFor="let img of images; index as i">
         <ng-container *ngIf="this.currentPos === i">
             <img class="carousel__img" [src]='img.imageUrl' alt=''/>
