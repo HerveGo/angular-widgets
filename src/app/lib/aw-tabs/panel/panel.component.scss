@@ -1,0 +1,23 @@
+.panel {
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin:0;
+        padding: 0;
+    }
+    &__tab {
+        flex: 1;
+        list-style: none;
+        border:1px solid black;
+        cursor: pointer;
+        &_selected {
+            flex: 1;
+            color: white;
+            list-style: none;
+            background-color: var(--clr-primary);
+            border:1px solid green;
+            cursor:default;
+        }
+    }
+}

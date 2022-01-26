@@ -10,11 +10,18 @@
     --font-primary: 'Poppins', sans-serif;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 body{
     font-family: var(--font-primary);
     color: var(--clr-primary);
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 a{

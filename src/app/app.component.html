@@ -2,7 +2,21 @@
 <aw-tags [max]="20"></aw-tags>
 <br>
 -->
+<aw-carousel [images]="slides"></aw-carousel>
+
 <h1 #pageTitle>Angular</h1>
+<aw-panel>
+    <aw-tab name="tab 1" [selected]="true">
+        content A
+    </aw-tab>
+    <aw-tab name="tab 2">
+        content B
+    </aw-tab>
+    <aw-tab name="tab 3">
+        content C
+    </aw-tab>
+</aw-panel>
+
 <aw-blog></aw-blog>
 
 <div class="cards">
@@ -11,7 +25,11 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dignissimos impedit id quam tempora ad, mollitia laboriosam totam dolor alias atque odio omnis odit praesentium perspiciatis asperiores iure fuga recusandae.</p>
         <footer><h4>Ouille mon pied !</h4></footer>
     </aw-card>
+
     <aw-card title="titre 2">
         <img src='http://unsplash.it/300?random' alt=''/>
     </aw-card>
 </div>
+
+
+

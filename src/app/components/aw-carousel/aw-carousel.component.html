@@ -1,0 +1,20 @@
+<div>
+    <div class="carousel" *ngFor="let img of images; index as i">
+        <ng-container *ngIf="this.currentPos === i">
+            <img class="carousel__img" [src]='img.imageUrl' alt=''/>
+        </ng-container>
+    </div>
+</div>
+<div class="carousel__buttons">
+    <button class="carousel__buttons__btn" (click)="prev()">
+        <svg>
+            <use xlink:href="../assets/symbol-defs.svg#icon-circle-left"></use>
+        </svg>
+    </button>
+    <button class="carousel__buttons__btn" (click)="next()">
+        <svg>
+            <use xlink:href="../assets/symbol-defs.svg#icon-circle-right"></use>
+        </svg>
+    </button>
+</div>
+

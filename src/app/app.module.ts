@@ -8,6 +8,8 @@ import { AwBlogFormComponent } from './components/aw-blog-form/aw-blog-form.comp
 import { FormsModule } from '@angular/forms';
 import { AwBlogArticleComponent } from './components/aw-blog-article/aw-blog-article.component';
 import { CardComponent } from './components/card/card.component';
+import { AwTabsModule } from './lib/aw-tabs/aw-tabs.module';
+import { AwCarouselComponent } from './components/aw-carousel/aw-carousel.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { CardComponent } from './components/card/card.component';
     AwBlogFormComponent,
     AwBlogArticleComponent,
     CardComponent,
+    AwCarouselComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AwTagsModule,
+    AwTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
