@@ -1,6 +1,10 @@
 <article class="article">
     <header class="article__header" (click)="toggle()">
-        <h2 class="article__title">{{ article.title }}</h2>
+        <h2 class="article__title">
+            {{ article.title }}
+             
+            <i [ngClass]="(this.state==='expanded') ? 'fas fa-chevron-down':'fas fa-chevron-up'"></i>
+        </h2>
     </header>
     <p *ngIf="this.state=='expanded'" #content class="article__text">{{ article.text }}</p>
 </article>
