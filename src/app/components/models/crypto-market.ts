@@ -1,4 +1,4 @@
-export class CryptoMarket {
+export class CryptoMarketModel {
     id:string = 'bitcoin';
     symbol:string = 'btc';
     name:string = 'Bitcoin';
@@ -23,6 +23,6 @@ export class CryptoMarket {
     atl: string = '51.3';
     atl_change_percentage: string = '65615.46524';
     atl_date: string = '2013-07-05T00:00:00.000Z';
-    roi: string|null = null;
+    roi: any = null;
     last_updated: string = '2022-01-26T15:53:51.894Z';
 }
