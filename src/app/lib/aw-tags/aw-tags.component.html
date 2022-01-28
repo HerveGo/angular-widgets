@@ -1,8 +1,7 @@
 <a href="#">Link to the outer space</a>
 <div class="tags">
     
-    <!--div @fadeIn @fadeOut @slideLeftIn @slideRightOut class="tags__tag" *ngFor="let tag of tags; let index = index"-->
-    <div class="tags__tag" *ngFor="let tag of tags; let index = index">
+    <div @fadeIn @fadeOut @slideLeftIn @slideRightOut class="tags__tag" *ngFor="let tag of tags; let index = index">
         <span class="tags__text">{{tag}}</span>
         <span class="tags__close" (click)="delete(index)">X</span>
     </div>
