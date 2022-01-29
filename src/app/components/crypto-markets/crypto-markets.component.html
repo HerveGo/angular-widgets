@@ -8,3 +8,21 @@
     </ng-container>
 
 </div>
+
+<div class="crypto-buttons">
+    <button (click)="firstPage()" class="btn btn__primary" [disabled]="page<=1"><i class="fas fa-2x fa-step-backward"></i></button>
+    <button (click)="previousPage()" class="btn btn__primary" [disabled]="page<=1"><i class="fas fa-2x fa-backward"></i> Précédent</button>
+    <div class="crypto-buttons__input">
+        <ng-container *ngIf="showPageInput">
+            <input id="pageNum" [(ngModel)]="page" (keyup.enter)="setPage(page)" type="number" [min]="1" [max]="pageMax">
+            <label for="pageNum">Entrez le numéro de page</label>
+        </ng-container>
+        <ng-container *ngIf="!showPageInput">
+            <span (click)="toggleInput()">Page : {{ page }} / {{ pageMax }}</span>
+        </ng-container>
+    </div>
+    <button (click)="nextPage()" class="btn btn__primary" [disabled]="page>=pageMax">Suivant <i class="fas fa-2x fa-forward"></i></button>
+    <button (click)="lastPage()" class="btn btn__primary" [disabled]="page>=pageMax"><i class="fas fa-2x fa-step-forward"></i></button>
+</div>
+
+<br><hr><br>

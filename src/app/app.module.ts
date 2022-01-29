@@ -12,6 +12,7 @@ import { AwTabsModule } from './lib/aw-tabs/aw-tabs.module';
 import { AwCarouselComponent } from './components/aw-carousel/aw-carousel.component';
 import { CryptoMarketsComponent } from './components/crypto-markets/crypto-markets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ColorPickerComponent } from './components/color-picker/color-picker.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CardComponent,
     AwCarouselComponent,
     CryptoMarketsComponent,
+    ColorPickerComponent,
   ],
   imports: [
     HttpClientModule,

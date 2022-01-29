@@ -2,15 +2,53 @@
     display: grid;
     grid-template-columns: 1fr repeat(3, 2fr);
     grid-gap: 1em;
-    grid-auto-rows: 5em;
+    grid-auto-rows: 4em;
 
     & img {
-        height: 4em;
+        height: 3em;
         width: auto;
+        align-self: center;
     }
 
     & span {
-        background-color: #eee;
         text-align: center;
+        align-self: center;
     }
+
+}
+
+.crypto-buttons {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
+    grid-gap: 1em;
+    grid-auto-rows: 2.5em;
+
+    & span {
+        text-align: center;
+        align-self: center;
+    }
+
+    &__input {
+        display: grid;
+        text-align: left;
+        align-self: center;
+    }
+    &__input label {
+        font-size: xx-small;
+    }
+}
+
+.fa-2x {
+    vertical-align: middle;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
