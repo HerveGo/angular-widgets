@@ -1,9 +1,16 @@
-<p>color-picker works!</p>
 <div class="color-picker">
-    <div class="color-picker__panel">Primaire</div>
-    <div class="color-picker__panel">Analogue</div>
-    <div class="color-picker__panel">Complémentaire</div>
-    <div class="color-picker__slider">Hue</div>
-    <div class="color-picker__slider">Saturation</div>
-    <div class="color-picker__slider">Luminosité</div>
+    <div class="color-picker__panels">
+        <div class="color-picker__panel">Primaire</div>
+        <div class="color-picker__panel">Analogue</div>
+        <div class="color-picker__panel">Complémentaire</div>
+    </div>
+    <div class="color-picker__sliders">
+        <label for="hue">H</label>
+        <input id="hue" #hue class="color-picker__slider" type="range" min="0" max="360" value="180">
+        <label for="saturation">S</label>
+        <input id="saturation" #saturation class="color-picker__slider" type="range" min="0" max="100" value="50">
+        <label for="luminosity">L</label>
+        <input id="luminosity" #luminosity class="color-picker__slider" type="range" min="0" max="100" value="50">
+    </div>
+    <div class="color_picker__result">Résultat</div>
 </div>
