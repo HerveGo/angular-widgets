@@ -29,9 +29,14 @@
     }
 
     &__input {
-        display: grid;
         text-align: left;
         align-self: center;
+    }
+    &__input input {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid var(--clr-primary-light);
+        display: grid;
     }
     &__input label {
         font-size: xx-small;
@@ -41,6 +46,7 @@
 .fa-2x {
     vertical-align: middle;
 }
+/* Disable side buttons */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

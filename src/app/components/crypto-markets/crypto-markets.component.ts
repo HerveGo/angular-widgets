@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { interval } from 'rxjs';
 import { CryptoMarketsService } from 'src/app/services/crypto-markets.service';
 import { CryptoCoin } from '../models/crypto-coin';
@@ -14,10 +14,13 @@ export class CryptoMarketsComponent implements OnInit {
   @Input() currency: "usd" | "eur" = "usd";
   @Input() page: number = 1;
 
+  @ViewChild('input') inputElement!: ElementRef;
+
   markets: CryptoMarketModel[] = [];
   coins: CryptoCoin[] = [];
 
   pageMax: number = 0;
+  pageSave: number = 1;
   showPageInput: boolean = false;
 
   constructor(private cryptoMarketsService: CryptoMarketsService) { }
@@ -69,12 +72,21 @@ export class CryptoMarketsComponent implements OnInit {
     if( page >= this.pageMax ) page = this.pageMax;
     if( page < 1 ) page = 1;
     this.page = page;
-    this.toggleInput();
+    this.showPageInput = false;
     this.fetchMarkets();
   }
 
-  toggleInput(): void {
-    this.showPageInput = !this.showPageInput;
+  showInput(): void {
+    this.pageSave = this.page;
+    this.showPageInput = true;
+    setTimeout(()=>{ // this will make the execution after the above boolean has changed
+      this.inputElement.nativeElement.focus();
+    },1);  
+  }
+
+  cancelInput(): void {
+    this.page = this.pageSave;
+    this.showPageInput = false;
   }
 
 }
