@@ -1,0 +1,13 @@
+<div class="color-palette">
+    <div class="color-palette__panels">
+        <div class="color-palette__panel">Primaire hsl({{hue.value}},{{saturation.value}},{{luminosity.value}})</div>
+        <div class="color-palette__panel">Analogue</div>
+        <div class="color-palette__panel">Complémentaire</div>
+    </div>
+    <div class="color-palette__sliders">
+        <aw-color-slider #hue sliderName="Hue" [maxValue]="360"></aw-color-slider>
+        <aw-color-slider #saturation sliderName="Saturation"></aw-color-slider>
+        <aw-color-slider #luminosity sliderName="Luminosity"></aw-color-slider>
+    </div>
+    <div class="color_palette__result">Résultat</div>
+</div>

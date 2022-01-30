@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { fadeIn, fadeOut, slideLeftIn, slideRightOut } from '../aw-core/aw-animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'aw-tags',

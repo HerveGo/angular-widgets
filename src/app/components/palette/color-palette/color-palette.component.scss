@@ -1,0 +1,12 @@
+.color-palette {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4px;
+
+    &__panels {
+        display: grid;
+        grid-template-columns: repeat(3 1fr);
+        grid-gap: 4px;
+        
+    }
+}

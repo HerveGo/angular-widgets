@@ -8,8 +8,8 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 export class ColorSliderComponent implements OnInit {
 
   @Input() sliderName: string = "";
-  @Input() min: number = 0;
-  @Input() max: number = 100;
+  @Input() minValue: number = 0;
+  @Input() maxValue: number = 100;
 
   @Output() value: number = 0;
 
