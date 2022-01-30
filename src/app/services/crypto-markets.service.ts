@@ -14,7 +14,7 @@ export class CryptoMarketsService {
   constructor(private http: HttpClient) { }
 
   getMarkets(perPage: number = 5, currency: "usd"|"eur", page: number = 1): Observable<CryptoMarketModel[]> {
-    return this.http.get<CryptoMarketModel[]>(apiBaseUrl + "markets", {
+    return this.http.get<CryptoMarketModel[]>(`${apiBaseUrl}markets`, {
       params: {
         "per_page": perPage,
         "vs_currency": currency,
@@ -24,7 +24,7 @@ export class CryptoMarketsService {
   }
 
   getCoins(): Observable<CryptoCoin[]> {
-    return this.http.get<CryptoCoin[]>(apiBaseUrl + "list");
+    return this.http.get<CryptoCoin[]>(`${apiBaseUrl}list`);
   }
 
 }
