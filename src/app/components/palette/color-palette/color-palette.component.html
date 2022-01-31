@@ -6,10 +6,14 @@
             </span>
         </div>
         <div class="color-palette__panel" [ngStyle]="{'background-color':analogColor(hue.value,saturation.value,luminosity.value)}" >
-            <span>Analogue</span>
+            <span [ngStyle]="{'color':blackOrWhite(analog(hue.value),saturation.value,luminosity.value) ? 'black':'white'}" >
+                {{rgbString(analog(hue.value),saturation.value,luminosity.value)}}
+            </span>
         </div>
         <div class="color-palette__panel" [ngStyle]="{'background-color':complementaryColor(hue.value,saturation.value,luminosity.value)}" >
-            <span [ngStyle]="{'color':primaryColor(hue.value,saturation.value,luminosity.value)}">Complémentaire</span>
+            <span [ngStyle]="{'color':blackOrWhite(complementary(hue.value),saturation.value,luminosity.value) ? 'black':'white'}" >
+                {{rgbString(complementary(hue.value),saturation.value,luminosity.value)}}
+            </span>
         </div>
         <div class="color-palette__sliders">
             <aw-color-slider #hue sliderName="Hue" [maxValue]="360"></aw-color-slider>

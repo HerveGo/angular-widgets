@@ -102,7 +102,6 @@ export class ColorPaletteComponent implements OnInit {
     return result.toLocaleUpperCase();
   }
   
-
   blackOrWhite(h:number, s:number, l:number): boolean {
     const [r,g,b] = this.hslToRgb(h,s,l);
     
