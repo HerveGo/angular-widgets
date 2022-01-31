@@ -1,0 +1,22 @@
+<div class="color-palette">
+    <div class="color-palette__panels">
+        <div class="color-palette__panel" [ngStyle]="{'background-color':primaryColor(hue.value,saturation.value,luminosity.value)}" >
+            <span [ngStyle]="{'color':blackOrWhite(hue.value,saturation.value,luminosity.value) ? 'black':'white'}" >
+                {{rgbString(hue.value,saturation.value,luminosity.value)}}
+            </span>
+        </div>
+        <div class="color-palette__panel" [ngStyle]="{'background-color':analogColor(hue.value,saturation.value,luminosity.value)}" >
+            <span>Analogue</span>
+        </div>
+        <div class="color-palette__panel" [ngStyle]="{'background-color':complementaryColor(hue.value,saturation.value,luminosity.value)}" >
+            <span [ngStyle]="{'color':primaryColor(hue.value,saturation.value,luminosity.value)}">Complémentaire</span>
+        </div>
+        <div class="color-palette__sliders">
+            <aw-color-slider #hue sliderName="Hue" [maxValue]="360"></aw-color-slider>
+            <aw-color-slider #saturation sliderName="Saturation"></aw-color-slider>
+            <aw-color-slider #luminosity sliderName="Luminosity"></aw-color-slider>
+        </div>
+    </div>
+    
+</div>
+<div class="color-palette__result" [innerHTML]="code(hue.value, saturation.value, luminosity.value)"></div>
