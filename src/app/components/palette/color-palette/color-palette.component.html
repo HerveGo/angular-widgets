@@ -1,7 +1,9 @@
 <div class="color-palette">
     <div class="color-palette__panels">
         <div class="color-palette__panel" [ngStyle]="{'background-color':primaryColor(hue.value,saturation.value,luminosity.value)}" >
-            <span>Primaire</span>
+            <span [ngStyle]="{'color':blackOrWhite(hue.value,saturation.value,luminosity.value) ? 'black':'white'}" >
+                {{rgbString(hue.value,saturation.value,luminosity.value)}}
+            </span>
         </div>
         <div class="color-palette__panel" [ngStyle]="{'background-color':analogColor(hue.value,saturation.value,luminosity.value)}" >
             <span>Analogue</span>
@@ -17,24 +19,4 @@
     </div>
     
 </div>
-<div class="color-palette__result">
-    <span class="symbol">: </span>
-    <span class="keyword">root </span>
-    <span class="symbol">&lbrace;</span><br> 
-        --clr-primary<span class="symbol">: </span>
-        <span class="keyword">hsl</span><span class="symbol">(</span>
-            {{hue.value}}<span class="symbol">,</span>
-            {{saturation.value}}%<span class="symbol">,</span>
-            {{luminosity.value}}%<span class="symbol"> );</span><br>
-        --clr-analog<span class="symbol">: </span>
-        <span class="keyword">hsl</span><span class="symbol">(</span>
-        {{analog(hue.value)}}<span class="symbol">,</span>
-        {{saturation.value}}%<span class="symbol">,</span>
-        {{luminosity.value}}%<span class="symbol"> );</span><br>
-        --clr-complementary<span class="symbol">: </span>
-        <span class="keyword">hsl</span><span class="symbol">(</span>
-        {{complementary(hue.value)}}<span class="symbol">,</span>
-        {{saturation.value}}%<span class="symbol">,</span>
-        {{luminosity.value}}%<span class="symbol"> );</span><br>
-    <span class="symbol">&rbrace;</span>
-</div>
+<div class="color-palette__result" [innerHTML]="code(hue.value, saturation.value, luminosity.value)"></div>
