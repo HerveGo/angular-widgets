@@ -1,13 +1,40 @@
 <div class="color-palette">
     <div class="color-palette__panels">
-        <div class="color-palette__panel">Primaire hsl({{hue.value}},{{saturation.value}},{{luminosity.value}})</div>
-        <div class="color-palette__panel">Analogue</div>
-        <div class="color-palette__panel">Complémentaire</div>
+        <div class="color-palette__panel" [ngStyle]="{'background-color':primaryColor(hue.value,saturation.value,luminosity.value)}" >
+            <span>Primaire</span>
+        </div>
+        <div class="color-palette__panel" [ngStyle]="{'background-color':analogColor(hue.value,saturation.value,luminosity.value)}" >
+            <span>Analogue</span>
+        </div>
+        <div class="color-palette__panel" [ngStyle]="{'background-color':complementaryColor(hue.value,saturation.value,luminosity.value)}" >
+            <span [ngStyle]="{'color':primaryColor(hue.value,saturation.value,luminosity.value)}">Complémentaire</span>
+        </div>
+        <div class="color-palette__sliders">
+            <aw-color-slider #hue sliderName="Hue" [maxValue]="360"></aw-color-slider>
+            <aw-color-slider #saturation sliderName="Saturation"></aw-color-slider>
+            <aw-color-slider #luminosity sliderName="Luminosity"></aw-color-slider>
+        </div>
     </div>
-    <div class="color-palette__sliders">
-        <aw-color-slider #hue sliderName="Hue" [maxValue]="360"></aw-color-slider>
-        <aw-color-slider #saturation sliderName="Saturation"></aw-color-slider>
-        <aw-color-slider #luminosity sliderName="Luminosity"></aw-color-slider>
-    </div>
-    <div class="color_palette__result">Résultat</div>
+    
+</div>
+<div class="color-palette__result">
+    <span class="symbol">: </span>
+    <span class="keyword">root </span>
+    <span class="symbol">&lbrace;</span><br> 
+        --clr-primary<span class="symbol">: </span>
+        <span class="keyword">hsl</span><span class="symbol">(</span>
+            {{hue.value}}<span class="symbol">,</span>
+            {{saturation.value}}%<span class="symbol">,</span>
+            {{luminosity.value}}%<span class="symbol"> );</span><br>
+        --clr-analog<span class="symbol">: </span>
+        <span class="keyword">hsl</span><span class="symbol">(</span>
+        {{analog(hue.value)}}<span class="symbol">,</span>
+        {{saturation.value}}%<span class="symbol">,</span>
+        {{luminosity.value}}%<span class="symbol"> );</span><br>
+        --clr-complementary<span class="symbol">: </span>
+        <span class="keyword">hsl</span><span class="symbol">(</span>
+        {{complementary(hue.value)}}<span class="symbol">,</span>
+        {{saturation.value}}%<span class="symbol">,</span>
+        {{luminosity.value}}%<span class="symbol"> );</span><br>
+    <span class="symbol">&rbrace;</span>
 </div>

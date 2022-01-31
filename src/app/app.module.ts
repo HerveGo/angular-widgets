@@ -12,7 +12,8 @@ import { AwTabsModule } from './lib/aw-tabs/aw-tabs.module';
 import { AwCarouselComponent } from './components/aw-carousel/aw-carousel.component';
 import { CryptoMarketsComponent } from './components/crypto-markets/crypto-markets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PaletteModule } from './lib/palette/palette.module';
+import { ColorPaletteComponent } from './components/palette/color-palette/color-palette.component';
+import { ColorSliderComponent } from './components/palette/color-slider/color-slider.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import { PaletteModule } from './lib/palette/palette.module';
     CardComponent,
     AwCarouselComponent,
     CryptoMarketsComponent,
+    ColorPaletteComponent,
+    ColorSliderComponent
   ],
   imports: [
     HttpClientModule,
@@ -30,7 +33,6 @@ import { PaletteModule } from './lib/palette/palette.module';
     FormsModule,
     AwTagsModule,
     AwTabsModule,
-    PaletteModule,
     BrowserAnimationsModule,
   ],
   providers: [],

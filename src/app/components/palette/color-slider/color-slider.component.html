@@ -1,5 +1,5 @@
 <div class="color-slider">  
-    <label for="slider">{{sliderName}}</label>
-    <input id="slider" class="color-picker__slider" type="range" [min]="minValue" [max]="maxValue" [(ngModel)]="value">
-    <input type="number" [min]="minValue" [max]="maxValue" [(ngModel)]="value">
+    <label for="slider" class="color-slider__label">{{sliderName}}</label>
+    <input id="slider" class="color-slider__slider" type="range" [min]="minValue" [max]="maxValue" [(ngModel)]="value">
+    <input class="color-slider__input" type="number" [min]="minValue" [max]="maxValue" [(ngModel)]="value">
 </div>

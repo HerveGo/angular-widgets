@@ -1,12 +1,40 @@
 .color-palette {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 4px;
-
+    display: flex;
+    flex-direction: row;
+    
     &__panels {
-        display: grid;
-        grid-template-columns: repeat(3 1fr);
-        grid-gap: 4px;
-        
+        display: flex;
+        flex-direction: row;
+        width: 100%;
     }
+
+    &__panel {
+        width: 33.333%;
+        margin: 4px;
+    }
+
+    &__sliders {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__result {
+        font-family: Consolas, monospace;
+        padding: 16px;
+        margin: 16px;
+        color: #EEF1C5;
+        background-color: black;
+    }
+
+}
+
+.keyword {
+    color: #C192EB;
+}
+.symbol {
+    color: #9EDDFF;
+}
+.value {
+    color: #E88C6D;
 }
