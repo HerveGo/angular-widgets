@@ -56,38 +56,21 @@ export class ColorPaletteComponent implements OnInit {
     c = c.replace(/\(/g, "<span class='symbol'>(</span>");
     c = c.replace(/\)/g, "<span class='symbol'>)</span>");
     c = c.replace(/hsl/g, "<span class='keyword'>hsl</span>");
+    c = c.replace(/root/g, "<span class='keyword'>root</span>");
     c = c.replace(/§tab/g, "    ");
     return c;
   }
 
   hslToRgb(h:number, s:number, l:number): number[] {
-    h = h/380;
-    s = s/100;
-    l = l/100;
-    let r:number, g:number, b:number;
+    s /= 100;
+    l /= 100;
+    const k = (n: number) => (n + h / 30) % 12;
+    const a = s * Math.min(l, 1 - l);
+    const f = (n: number) =>
+      l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+    return [Math.round(255 * f(0)), Math.round(255 * f(8)), Math.round(255 * f(4))];
+  };
 
-    if(s == 0) {
-        r = g = b = l; // achromatic
-    } else {
-        let hue2rgb = function hue2rgb(p:number, q:number, t:number): number{
-            if(t < 0) t += 1;
-            if(t > 1) t -= 1;
-            if(t < 1/6) return p + (q - p) * 6 * t;
-            if(t < 1/2) return q;
-            if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-            return p;
-        }
-
-        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-        var p = 2 * l - q;
-        r = hue2rgb(p, q, h + 1/3);
-        g = hue2rgb(p, q, h);
-        b = hue2rgb(p, q, h - 1/3);
-    }
-    console.log("r="+r);
-    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
-  }
-  
   rgbString(h:number, s:number, l:number): string {
     const [r,g,b] = this.hslToRgb(h,s,l);
     return this.rgbToHex(r,g,b);
@@ -102,6 +85,13 @@ export class ColorPaletteComponent implements OnInit {
     return result.toLocaleUpperCase();
   }
   
+  /**
+   * Should we use black or white text for this hsl color ?
+   * @param h hue
+   * @param s saturation
+   * @param l luminosity
+   * @returns true for black, false for white
+   */
   blackOrWhite(h:number, s:number, l:number): boolean {
     const [r,g,b] = this.hslToRgb(h,s,l);
     
