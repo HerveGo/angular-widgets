@@ -98,13 +98,13 @@ export class ColorPaletteComponent implements OnInit {
       var hex = c.toString(16);
       return hex.length == 1 ? "0" + hex : hex;
     }
-    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    const result: string = "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    return result.toLocaleUpperCase();
   }
   
 
   blackOrWhite(h:number, s:number, l:number): boolean {
     const [r,g,b] = this.hslToRgb(h,s,l);
-    console.log(`r ${r}`);
     
     let Ys: number = Math.pow(r/255.0,2.2) * 0.2126 +
           Math.pow(g/255.0,2.2) * 0.7152 +
